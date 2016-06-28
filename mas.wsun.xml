@@ -16,7 +16,7 @@
   <meta>
     <ft full="qtense" short="qtense"/>
     <ft full="qaspect" short="qasp"/>
-    <ft full="modal" short="modal"/>
+    <ft full="qmodal" short="qmod"/>
     <ft full="person" short="pers"/>
     <ft full="number" short="num"/>
     <ft full="gender" short="gen"/>
@@ -147,7 +147,7 @@
             <fstruct id="12">
             </fstruct>
           </attr>
-          <attr name="QASPECT" valtype="atomic"> prog </attr> 
+          <attr name="QASP" valtype="atomic"> prog </attr> 
           <attr name="OBJ" valtype="fstruct"> 
             <fstruct id="2">
             </fstruct>
@@ -176,7 +176,7 @@
    </deepdep>
    <lfg>
       <cstruct>
-       (zj (dj#1 (np#2__^TOPIC=!__^TOPIC=^OBJ (n 凶手)) (dj__^=!__!SUBJ.PRED='pro' (vp#1__^=! (vp#1 (v 抓到)) (ule 了)))) (wfs 。))
+       (zj (dj#1 (np#2__^TOP=!__^TOP=^OBJ (n 凶手)) (dj__^=!__!SUBJ.PRED='pro' (vp#1__^=! (vp#1 (v 抓到)) (ule 了)))) (wfs 。))
      </cstruct>
      <fstruct id="1">
        <attr name="PRED" valtype="sem"> '抓到(SUBJ,OBJ)' </attr>
@@ -195,6 +195,11 @@
        </attr>
        <attr name="QASP" valtype="atomic"> perf </attr>
      </fstruct>
+     <comment>
+       <item date="20160627">
+         受事主语句到分析，视谓语为一个缺少了主语到主谓结构，亦即视此句为一主谓谓语句。
+       </item>
+     </comment>
    </lfg>
    <ccg>
    </ccg>  
@@ -384,28 +389,25 @@
        (zj (dj#1 (qp#2 (mp#3 (m 一)) (q 排)) (vp#1 (vp#1 (v 坐)) (np#4 (qp#4 (mp#5 (m 四)) (q 个)) (np#6 (n 人))))) (wfs 。))
      </cstruct> 
      <fstruct id="1">
-       <attr name="PRED" valtype="sem"> '坐(SUBJ,OBJ)' </attr>
+       <attr name="PRED" valtype="sem"> '容纳(SUBJ,OBJ)' </attr>
        <attr name="SUBJ" valtype="fstruct"> 
          <fstruct id="2">
-           <attr name="PRED" valtype="sem"> '排(NUM)' </attr> 
-           <attr name="NUM" valtype="fstruct">
+           <attr name="PRED" valtype="sem"> 'pro' </attr> 
+           <attr name="SPEC" valtype="fstruct"> 
              <fstruct id="3">
-               <attr name="PRED" valtype="sem"> '一' </attr>
+               <attr name="PRED" valtype="sem"> '排' </attr> 
+               <attr name="DET" valtype="atomic"> 1 </attr>
              </fstruct>
            </attr>
          </fstruct>
        </attr>
        <attr name="OBJ" valtype="fstruct"> 
          <fstruct id="4">
-            <attr name="PRED" valtype="sem"> '个(NUM,NOUN)' </attr>
-            <attr name="NUM" valtype="fstruct">
-              <fstruct id="5">
-                <attr name="PRED" valtype="sem"> '四' </attr>
-              </fstruct>
-            </attr>
-            <attr name="NOUN" valtype="fstruct">
+            <attr name="PRED" valtype="sem"> '人' </attr>
+            <attr name="SPEC" valtype="fstruct">
               <fstruct id="6">
-                <attr name="PRED" valtype="sem"> '人' </attr>
+                <attr name="PRED" valtype="sem"> '个' </attr>
+                <attr name="DET" valtype="atomic"> 4 </attr>
               </fstruct>
             </attr>                    
          </fstruct>
@@ -435,41 +437,37 @@
    </deepdep>
    <lfg>
       <cstruct>
-         (zj (dj#1 (qp#2 (mp#3 (m 一)) (q 个)) (vp#1 (dp#4 (d 都)) (vp#1 (dp#5 (d 不)) (vp#1 (vp#1 (v 能)) (ap#6 (a 少)))))) (wfs 。))
+         (zj (dj#1 (qp#2 (mp#3 (m 一)) (q 个)) (dj (vp#1 (dp#4 (d 都)) (vp#1 (dp#5 (d 不)) (vp#1 (vp#1 (v 能)) (ap#6 (a 少))))))) (wfs 。))
       </cstruct>
       <fstruct id="1">
         <attr name="PRED" valtype="sem"> '能(SUBJ,XCOMP)' </attr>
-        <attr name="POS" valtype="atomic"> VERB </attr> 
-        <attr name="CLASS" valtype="atomic"> AUX </attr> 
         <attr name="SUBJ" valtype="fstruct"> 
+          <fstruct id="12">
+            <attr name="PRED" valtype="sem"> 'pro' </attr>
+         </fstruct>
+       </attr>
+        <attr name="TOPIC" valtype="fstruct"> 
           <fstruct id="2">
-            <attr name="PRED" valtype="sem"> '个(NUM)' </attr> 
-            <attr name="CLASS" valtype="atomic"> INDI-Q </attr> 
-            <attr name="POS" valtype="atomic"> QUAN </attr>
-            <attr name="NUM" valtype="fstruct">
-               <fstruct id="3">
-                 <attr name="PRED" valtype="sem"> '一' </attr>
-                 <attr name="POS" valtype="atomic"> NUM </attr> 
-               </fstruct>
-            </attr>
+            <attr name="PRED" valtype="sem"> 'pro' </attr> 
+            <attr name="NUM" valtype="atomic"> 1 </attr>
          </fstruct>
        </attr>
        <attr name="ADJ" valtype="set"> 
          <fstruct id="4">
             <attr name="PRED" valtype="sem"> '都' </attr>
-            <attr name="POS" valtype="atomic"> ADV </attr> 
          </fstruct>
          <fstruct id="5">
             <attr name="PRED" valtype="sem"> '不' </attr>
-            <attr name="POS" valtype="atomic"> ADV </attr> 
-            <attr name="CLASS" valtype="atomic"> NEG </attr> 
          </fstruct>
        </attr>
        <attr name="XCOMP" valtype="fstruct"> 
          <fstruct id="6">
-           <attr name="PRED" valtype="sem"> '少(SUBJ)' </attr> 
-           <attr name="POS" valtype="atomic"> ADJ </attr>
-           <attr name="SUBJ" valtype="fstruct">
+           <attr name="PRED" valtype="sem"> '少(SUBJ,OBJ)' </attr> 
+           <attr name="SUBJ" valtype="fstruct"> 
+             <fstruct id="12">   
+             </fstruct>
+           </attr>
+           <attr name="OBJ" valtype="fstruct">
              <fstruct id="2">   
              </fstruct>
            </attr>
@@ -501,29 +499,40 @@
          (zj (dj#1 (vp#1 (dp#3 (d 经常)) (vp#2 (v 运动))) (vp#1 (vp#1 (v 有利于)) (np#4 (n 健康)))) (wfs 。))
       </cstruct>
       <fstruct id="1">
-        <attr name="PRED" valtype="sem"> '有利于(SXCOMP,OBJ)' </attr>
-        <attr name="POS" valtype="atomic"> VERB </attr> 
-        <attr name="SXCOMP" valtype="fstruct"> 
+        <attr name="PRED" valtype="sem"> '有利于(COMP,OBJ)' </attr>
+        <attr name="COMP" valtype="fstruct"> 
           <fstruct id="2">
-            <attr name="PRED" valtype="sem"> '运动' </attr> 
-            <attr name="POS" valtype="atomic"> VERB </attr>
-            <attr name="ADJ" valtype="fstruct">
+            <attr name="PRED" valtype="sem"> '运动(SUBJ)' </attr> 
+            <attr name="SUBJ" valtype="fstruct">
+              <fstruct id="12">
+                <attr name="PRED" valtype="sem"> 'pro' </attr> 
+              </fstruct>
+            </attr>
+            <attr name="ADJ" valtype="set">
                <fstruct id="3">
                  <attr name="PRED" valtype="sem"> '经常' </attr>
-                 <attr name="POS" valtype="atomic"> ADV </attr> 
                </fstruct>
             </attr>
          </fstruct>
        </attr>
        <attr name="OBJ" valtype="fstruct"> 
          <fstruct id="4">
-            <attr name="PRED" valtype="sem"> '健康' </attr>
-            <attr name="POS" valtype="atomic"> NOUN </attr> 
-            <attr name="CLASS" valtype="atomic"> NH </attr>
-            <attr name="QUAN" valtype="atomic"> - </attr> 
+           <attr name="PRED" valtype="sem"> '健康(SUBJ)' </attr>
+            <attr name="SUBJ" valtype="fstruct">
+              <fstruct id="12">
+              </fstruct>
+            </attr>
          </fstruct>       
        </attr>
      </fstruct>
+     <comment>`
+       <item>
+         不论视“健康”为“名词”还是“动词”，到f-structure的层面，结果都是一样的pred。
+       </item>
+       <item>
+         有利于到一个论元是COMP而不是XCOMP，是考虑到不能说“我经常运动有利于健康”。
+       </item>
+     </comment>`
    </lfg>
    <ccg>
    </ccg>  
@@ -550,42 +559,29 @@
          (zj (dj#1 (vp#2 (vp#2 (v 看)) (np#3 (n 电影))) (vp#1 (vp#1 (v 可以)) (vp#4 (vp#4 (v 作为)) (np#5 (vn 消遣))))) (wfs 。))
       </cstruct>
       <fstruct id="1">
-        <attr name="PRED" valtype="sem"> '可以(SXCOMP,OXCOMP)' </attr>
-        <attr name="POS" valtype="atomic"> VERB </attr> 
-        <attr name="CLASS" valtype="atomic"> AUX </attr>
-        <attr name="SXCOMP" valtype="fstruct"> 
+        <attr name="PRED" valtype="sem"> '作为(COMP,OBJ)' </attr>
+        <attr name="COMP" valtype="fstruct"> 
           <fstruct id="2">
-            <attr name="PRED" valtype="sem"> '看(OBJ)' </attr> 
-            <attr name="POS" valtype="atomic"> VERB </attr>
+            <attr name="PRED" valtype="sem"> '看(SUBJ,OBJ)' </attr> 
+            <attr name="SUBJ" valtype="fstruct">
+               <fstruct id="13">
+                 <attr name="PRED" valtype="sem"> 'pro' </attr>
+               </fstruct>
+            </attr>
             <attr name="OBJ" valtype="fstruct">
                <fstruct id="3">
                  <attr name="PRED" valtype="sem"> '电影' </attr>
-                 <attr name="POS" valtype="atomic"> NOUN </attr>
-                 <attr name="CLASS" valtype="atomic"> NA </attr>
-                 <attr name="INDI-Q" valtype="atomic"> + </attr>
-                 <attr name="COLLEC-Q" valtype="atomic"> + </attr>  
-                 <attr name="TYPE-Q" valtype="atomic"> + </attr>
-                 <attr name="INDEF-Q" valtype="atomic"> + </attr> 
                </fstruct>
             </attr>
          </fstruct>
        </attr>
-       <attr name="OXCOMP" valtype="fstruct"> 
-         <fstruct id="4">
-            <attr name="PRED" valtype="sem"> '作为(SXCOMP,OBJ)' </attr>
-            <attr name="POS" valtype="atomic"> VERB </attr> 
-            <attr name="CLASS" valtype="atomic"> COPULA </attr>
-            <attr name="SXCOMP" valtype="fstruct">
-               <fstruct id="2">
+       <attr name="QMOD" valtype="atomic"> may </attr>
+       <attr name="OBJ" valtype="fstruct">
+         <fstruct id="5">
+           <attr name="PRED" valtype="sem"> '消遣(SUBJ)' </attr>
+            <attr name="SUBJ" valtype="fstruct">
+               <fstruct id="13">
                </fstruct>
-            </attr>
-            <attr name="OBJ" valtype="fstruct">
-               <fstruct id="5">
-                 <attr name="PRED" valtype="sem"> '消遣' </attr>
-                 <attr name="POS" valtype="atomic"> VERB </attr>
-                 <attr name="CLASS" valtype="atomic"> VN </attr>
-                 <attr name="QUAN" valtype="atomic"> - </attr> 
-               </fstruct>       
             </attr>
          </fstruct>       
        </attr>
@@ -615,43 +611,38 @@
    </deepdep>
    <lfg>
       <cstruct>
-         (zj (dj#1 (ap#2 (a 好看)) (vp#1 (dp#6 (d 又)) (vp#1 (dp#7 (d 不)) (vp#1 (vp#1 (v 能)) (vp (vp#3 (vp#3 (v 当)) (np#4 (n 饭))) (vp#5 (v 吃))))))) (wfs 。))
+         (zj (dj#1 (ap#2 (a 好看)) (vp#1 (dp#6 (d 又)) (vp#1 (dp#7 (d 不)) (vp#1 (vp#1 (v 能)) (vp#3 (vp#3 (v 当)) (np#4 (n 饭)) (vp#5 (v 吃))))))) (wfs 。))
       </cstruct>
       <fstruct id="1">
-        <attr name="PRED" valtype="sem"> '能(SXCOMP,OXCOMP)' </attr>
-        <attr name="POS" valtype="atomic"> VERB </attr>
-        <attr name="CLASS" valtype="atomic"> AUX </attr> 
-        <attr name="SXCOMP" valtype="fstruct"> 
-          <fstruct id="2">
-            <attr name="PRED" valtype="sem"> '好看' </attr> 
-            <attr name="POS" valtype="atomic"> ADJ </attr>
+        <attr name="PRED" valtype="sem"> '当(COMP,SUBJ)OBJ,XCOMP' </attr>
+        <attr name="SUBJ" valtype="fstruct"> 
+          <fstruct id="12">
+            <attr name="PRED" valtype="sem"> 'pro' </attr>
          </fstruct>
        </attr>
-       <attr name="OXCOMP" valtype="set"> 
-         <fstruct id="3">
-            <attr name="PRED" valtype="sem"> '当(SXCOMP,OBJ)' </attr>
-            <attr name="POS" valtype="atomic"> VERB </attr> 
-            <attr name="CLASS" valtype="atomic"> COPULA </attr>
-            <attr name="OBJ" valtype="fstruct"> 
-              <fstruct id="4">
-                <attr name="PRED" valtype="sem"> '饭' </attr>
-                <attr name="POS" valtype="atomic"> NOUN </attr>
-                <attr name="CLASS" valtype="atomic"> NA </attr>
-                <attr name="CONT-Q" valtype="atomic"> + </attr>
-                <attr name="TYPE-Q" valtype="atomic"> + </attr>
-                <attr name="MEAS-Q" valtype="atomic"> + </attr> 
-                <attr name="INDEF-Q" valtype="atomic"> + </attr>
-              </fstruct> 
-            </attr>
-            <attr name="SXCOMP" valtype="fstruct"> 
-              <fstruct id="2">
-              </fstruct> 
-            </attr>
-         </fstruct> 
-         <fstruct id="5">
-            <attr name="PRED" valtype="sem"> '吃(SUBJ)' </attr>
-            <attr name="POS" valtype="atomic"> VERB </attr> 
+        <attr name="XCOMP" valtype="fstruct"> 
+          <fstruct id="2">
+            <attr name="PRED" valtype="sem"> '好看(SUBJ)' </attr> 
             <attr name="SUBJ" valtype="fstruct"> 
+              <fstruct id="22">
+                <attr name="PRED" valtype="sem"> 'pro' </attr>
+              </fstruct>
+            </attr>
+         </fstruct>
+       </attr>
+       <attr name="OBJ" valtype="fstruct"> 
+         <fstruct id="4">
+           <attr name="PRED" valtype="sem"> '饭' </attr>
+         </fstruct> 
+       </attr>
+       <attr name="COMP" valtype="fstruct"> 
+         <fstruct id="5">
+            <attr name="PRED" valtype="sem"> '吃(SUBJ,OBJ)' </attr>
+            <attr name="SUBJ" valtype="fstruct"> 
+              <fstruct id="12">
+              </fstruct>       
+            </attr>
+            <attr name="OBJ" valtype="fstruct"> 
               <fstruct id="4">
               </fstruct>       
             </attr>
@@ -660,15 +651,24 @@
        <attr name="ADJ" valtype="set"> 
          <fstruct id="6">
             <attr name="PRED" valtype="sem"> '又' </attr>
-            <attr name="POS" valtype="atomic"> ADV </attr> 
          </fstruct>
          <fstruct id="7">
             <attr name="PRED" valtype="sem"> '不' </attr>
-            <attr name="POS" valtype="atomic"> ADV </attr> 
-            <attr name="CLASS" valtype="atomic"> NEG </attr> 
          </fstruct>
        </attr>
      </fstruct>       
+     <comment>
+       <item>
+         在COMP的分析上，汉语还需要很很很细致地讨论才行。以本句为例，
+在动词的前面和后面均出现(X)COMP成分，而(X)COMP又“应该”唯一，如何处理？
+本句中观察到，谓词前面的是一个COMP，谓词后面的是一个COMP，但这是否具有“通用性”？
+       </item>
+       <item>
+“当饭吃”应该说符合一般对“构式”对理解，意思并非字面意，这里的手段是不再赋予其语义角色。
+但显然是有问题的，没有构式义的时候，怎么办？
+“咱今天把二锅头当五粮液喝”
+       </item>
+     </comment>
    </lfg>
    <ccg>
    </ccg>  
@@ -739,12 +739,10 @@
          (zj (dj#1 (np#3 (!rn 他)) (vp#2 (vp#2 (!v 投篮)) (ap#1 (dp#4 (!d 很)) (ap#1 (!a 准))))) (wfs 。))
       </cstruct>
       <fstruct id="1">
-        <attr name="PRED" valtype="sem"> '准(SXCOMP)' </attr>
-        <attr name="POS" valtype="atomic"> ADJ </attr> 
-        <attr name="SXCOMP" valtype="fstruct"> 
+        <attr name="PRED" valtype="sem"> '准(COMP)' </attr>
+        <attr name="COMP" valtype="fstruct"> 
           <fstruct id="2">
             <attr name="PRED" valtype="sem"> '投篮(SUBJ)' </attr> 
-            <attr name="POS" valtype="atomic"> VERB </attr>
             <attr name="SUBJ" valtype="fstruct">
                <fstruct id="3">
                </fstruct>    
@@ -753,18 +751,22 @@
         </attr>
         <attr name="TOPIC" valtype="fstruct"> 
           <fstruct id="3">
-            <attr name="PRED" valtype="sem"> '他' </attr>
-            <attr name="POS" valtype="atomic"> PRO </attr> 
-            <attr name="CLASS" valtype="atomic"> PERSONAL </attr>     
+            <attr name="PRED" valtype="sem"> 'pro' </attr>
+            <attr name="PERS" valtype="atomic"> 3rd </attr>
+            <attr name="NUM" valtype="atomic"> sg </attr>
           </fstruct>
         </attr>
         <attr name="ADJ" valtype="fstruct"> 
           <fstruct id="4">
             <attr name="PRED" valtype="sem"> '很' </attr>
-            <attr name="POS" valtype="atomic"> ADV </attr> 
           </fstruct>
         </attr>
      </fstruct>       
+     <comment>
+       <item>
+         又回到了“这辆车开着很顺手”上：动词后面还有一个“后修饰语”，如何看？
+       </item>
+     </comment>
    </lfg>
    <ccg>
    </ccg>  
@@ -6657,30 +6659,39 @@
        (zj (dj#1 (np#2 (rn 他)) (vp#1 (vp#1 (v 当) (np#3 (n 厂长))) (vp#1 (vp#1 (v 当)) (ude3 得) (ap#4 (a 不错))))) (wfs 。))
      </cstruct>
      <fstruct id="1">
-       <attr name="PRED" valtype="sem"> '当/当(SUBJ,OBJ,COMP)' </attr> 
-       <attr name="POS" valtype="atomic"> VERB </attr> 
-       <attr name="UDE3" valtype="atomic"> + </attr> 
-       <attr name="SUBJ" valtype="fstruct">
-         <fstruct id="2">
-           <attr name="PRED" valtype="sem"> '他' </attr> 
-           <attr name="POS" valtype="atomic"> PRO </attr> 
-           <attr name="CLASS" valtype="atomic"> PERSON </attr>  
+       <attr name="SET" valtype="set">
+         <fstruct id="15">
+           <attr name="PRED" valtype="sem"> '当(SUBJ,OBJ)' </attr> 
+           <attr name="OBJ" valtype="fstruct">
+             <fstruct id="3">
+               <attr name="PRED" valtype="sem"> '厂长' </attr>
+             </fstruct>
+           </attr>  
          </fstruct>
-       </attr>  
-       <attr name="OBJ" valtype="fstruct">
-         <fstruct id="3">
-           <attr name="PRED" valtype="sem"> '厂长' </attr>
-           <attr name="POS" valtype="atomic"> PREP </attr>
-           <attr name="QUAN" valtype="atomic"> + </attr>  
-         </fstruct>
-       </attr>  
-       <attr name="COMP" valtype="fstruct"> 
-         <fstruct id="4">
-           <attr name="PRED" valtype="sem"> '不错(COMP)' </attr> 
-           <attr name="POS" valtype="atomic"> ADJ </attr> >
+         <fstruct id="15">
+           <attr name="PRED" valtype="sem"> '当(SUBJ,OBJ)' </attr> 
+           <attr name="OBJ" valtype="fstruct">
+             <fstruct id="3">
+             </fstruct>
+           </attr>  
+           <attr name="ADJ" valtype="set"> 
+             <fstruct id="4">
+               <attr name="PRED" valtype="sem"> '不错' </attr> 
+             </fstruct>
+           </attr>
          </fstruct>
        </attr>
+       <attr name="SUBJ" valtype="fstruct">
+         <fstruct id="2">
+           <attr name="PRED" valtype="sem"> 'pro' </attr> 
+         </fstruct>
+       </attr>  
      </fstruct>
+     <comment>
+       <item date="20160627">
+         This is a definitly good idea to include some comments to provide more about current analysis.
+       </item>
+     </comment>
    </lfg>
    <ccg>
    </ccg>  
@@ -6708,32 +6719,34 @@
      (zj (dj#1 (np#2 (np#3 (rn#3 他)) (ude1 的) (np#4 (n 厂长))) (vp#1 (v 当) (ude3 得) (ap#5 (a 不错)))) (wfs 。))
    </cstruct>
    <fstruct id="1">
-    <attr name="PRED" valtype="sem"> '当(SUBJ,COMP)' </attr>
-    <attr name="POS" valtype="atomic"> VERB </attr> 
-    <attr name="UDE3" valtype="atomic"> + </attr> 
+    <attr name="PRED" valtype="sem"> '当(SUBJ,OBJ)' </attr>
     <attr name="SUBJ" valtype="fstruct"> 
+      <fstruct id="3">
+      </fstruct>
+    </attr>
+    <attr name="OBJ" valtype="fstruct"> 
+      <fstruct id="4">
+      </fstruct>
+    </attr>
+    <attr name="TOPIC" valtype="fstruct"> 
       <fstruct id="2">
-        <attr name="PRED" valtype="sem"> '的(NOUN1,NOUN2)' </attr>
-        <attr name="NOUN1" valtype="fstruct"> 
+        <attr name="PRED" valtype="sem"> 'unknown(SUBJ,OBJ)' </attr>
+        <attr name="SUBJ" valtype="fstruct"> 
           <fstruct id="3">
-            <attr name="PRED" valtype="sem"> '他' </attr> 
-            <attr name="POS" valtype="atomic"> PRO </attr>
-            <attr name="CLASS" valtype="atomic"> PERSON </attr>
+            <attr name="PRED" valtype="sem"> PRO </attr>
+            <attr name="PERS" valtype="atomic"> 3rd </attr>
           </fstruct>    
         </attr>
-        <attr name="NOUN2" valtype="fstruct"> 
+        <attr name="OBJ" valtype="fstruct"> 
           <fstruct id="4">
             <attr name="PRED" valtype="sem"> '厂长' </attr> 
-            <attr name="POS" valtype="atomic"> NOUN </attr> 
-            <attr name="QUAN" valtype="atomic"> + </attr>
           </fstruct>  
         </attr>
       </fstruct>  
     </attr>
-    <attr name="COMP" valtype="fstruct"> 
+    <attr name="ADJ" valtype="set"> 
       <fstruct id="5">
-        <attr name="PRED" valtype="sem"> '不错(COMP)' </attr> 
-        <attr name="POS" valtype="atomic"> ADJ </attr> >
+        <attr name="PRED" valtype="sem"> '不错' </attr> 
       </fstruct>
     </attr>
   </fstruct>
